@@ -1,19 +1,30 @@
-import math
+import cmath
 
-a = 1
-b = 3
-c = -1
+def solve_quadratic():
+    print("Quadratic Equation Solver (ax^2 + bx + c = 0)")
+    
+    try:
+        a = float(input("Enter coefficient a: "))
+        b = float(input("Enter coefficient b: "))
+        c = float(input("Enter coefficient c: "))
+    except ValueError:
+        print("Please enter valid numbers.")
+        return
 
-d = (b**2) - (4*a*c)
+    if a == 0:
+        print("Coefficient 'a' cannot be 0 in a quadratic equation.")
+        return
 
-if d > 0:
-  root 1 = (-b + math.sqrt(d)) / (2*a)
-  root 2 = (-b - math.sqrt(d)) / (2*a)
-  print("root 1:", root 1)
-  print("root 2:", root 2)
-elif d == 0:
-  root = (-b) / (2*a)
-  print("the root is:", root)
-else:
-  print("there are no roots")
-  
+    discriminant = (b**2) - (4 * a * c)
+
+    sol1 = (-b - cmath.sqrt(discriminant)) / (2 * a)
+    sol2 = (-b + cmath.sqrt(discriminant)) / (2 * a)
+
+    print("\n--- Results ---")
+    
+    if discriminant >= 0:
+        print(f"The solutions are real numbers: x1 = {sol1.real:.4f} and x2 = {sol2.real:.4f}")
+    else:
+        print(f"The solutions are complex numbers: x1 = {sol1:.4f} and x2 = {sol2:.4f}")
+
+solve_quadratic()
